@@ -1,10 +1,12 @@
-#!/usr/bin/python3
-""" This is an helper function that helps get index_range """
+#!/usr/bin/env python3
+"""Pagination helper function.
+"""
 from typing import Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """ This function gets the range of index used to paginate """
-    start_index = (page - 1) * page_size
-    end_index = start_index + page_size
-    return (start_index, end_index)
+    """Retrieves the index range from a given page and page size.
+    """
+    start = (page - 1) * page_size
+    end = start + page_size
+    return (start, end)
