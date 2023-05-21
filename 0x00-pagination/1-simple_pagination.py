@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""""
+""" A server class that implements a simple pagination """
 import csv
 import math
 from typing import List, Tuple
@@ -36,9 +36,8 @@ class Server:
         """This is used to get the page contents"""
         assert type(page_size) == int and type(page) == int
         assert page_size > 0 and page > 0
-
-        dataset = self.dataset()
         start, end = index_range(page, page_size)
+        dataset = self.dataset()
         if start > len(dataset):
             return []
         return dataset[start:end]
