@@ -34,8 +34,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """This is used to get the page contents"""
-        assert type(page_size) == int and page_size > 0
-        assert type(page) == int and page > 0
+        assert type(page_size) == int and type(page) == int
+        assert page_size > 0 and page > 0
 
         dataset = self.dataset()
         start, end = index_range(page, page_size)
