@@ -7,8 +7,10 @@ BaseCaching = __import__('base_caching').BaseCaching
 class LIFOCache(BaseCaching):
     """ class that implements fifo caching """
 
-    # stores the key of the last added item
-    LAST_ITEM = ''
+    def __init__(self):
+        # stores the key of the last added item
+        super().__init__()
+        self.last_item = ''
 
     def put(self, key, item):
         """
@@ -20,9 +22,9 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            del self.cache_data[LIFOCache.LAST_ITEM]
-            print(f"DISCARD: {LIFOCache.LAST_ITEM}")
-        LIFOCache.LAST_ITEM = key
+            del self.cache_data[self.last_item]
+            print(f"DISCARD: {self.last_item}")
+        self.last_item = key
 
     def get(self, key):
         """ retrieves the data """
