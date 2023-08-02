@@ -1,15 +1,17 @@
-#!usr/bin/env python3
-""" A basic flask app
+#!/usr/bin/env python3
+"""A Basic Flask app boilerplate.
 """
 from flask import Flask, render_template
+
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
 @app.route('/')
-def index() -> str:
-    """creates an index route"""
+def get_index() -> str:
+    """The index route.
+    """
     return render_template('0-index.html')
 
 
