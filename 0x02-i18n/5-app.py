@@ -33,7 +33,7 @@ def get_user():
         user_id = int(user_id)
         if user_id:
             return users[user_id]
-    except:
+    except (KeyError, ValueError):
         return None
 
 
