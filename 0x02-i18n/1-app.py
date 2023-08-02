@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
-"""A Basic Flask app with babel config.
+"""A Basic Flask app.
 """
-from flask import Flask, render_template
 from flask_babel import Babel
+from flask import Flask, render_template
 
 
 class Config:
-    """creates configurations for the flask app
+    """Represents a Flask Babel configuration.
     """
-    BABEL_DEFAULT_LOCALE = 'en'
-    BABEL_DEFAULT_TIMEZONE = 'UTC'
-    LANGUAGES = ['en', 'fr']
+    LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 app = Flask(__name__)
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
-bable = Babel(app)
+babel = Babel(app)
 
 
 @app.route('/')
 def get_index() -> str:
-    """The index route.
+    """The home/index page.
     """
     return render_template('1-index.html')
 
