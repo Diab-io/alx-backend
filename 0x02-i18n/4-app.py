@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A Basic Flask app wuth babel config.
 """
-from flask_babel import Babel, request
+from flask_babel import Babel, request, force_locale
 from flask import Flask, render_template
 
 
@@ -23,12 +23,15 @@ babel = Babel(app)
 def get_index() -> str:
     """The index route.
     """
-    return render_template('3-index.html')
+    return render_template('4-index.html')
 
 
 @babel.localeselector
 def get_locale():
     """This selects the language based on our config"""
+    url_query = request.args.get('locale')
+    if url_query in app.config['LANGUAGES']:
+        return url_query
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
