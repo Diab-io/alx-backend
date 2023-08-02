@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A Basic Flask app wuth babel config.
 """
-from flask_babel import Babel, request, _
+from flask_babel import Babel, request
 from flask import Flask, render_template
 
 
@@ -23,7 +23,7 @@ babel = Babel(app)
 def get_index() -> str:
     """The index route.
     """
-    return render_template('3-index.html')
+    return render_template('2-index.html')
 
 
 @babel.localeselector
