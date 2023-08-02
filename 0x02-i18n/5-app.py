@@ -28,6 +28,10 @@ users = {
 
 
 def get_user():
+    """
+    This function is used to get the user
+    from out mocked login system
+    """
     user_id = request.args.get('login_as')
     try:
         user_id = int(user_id)
@@ -39,6 +43,10 @@ def get_user():
 
 @app.before_request
 def before_request():
+    """
+    used to carry out some functionalities before
+    request
+    """
     user = get_user()
     g.user = user
 
