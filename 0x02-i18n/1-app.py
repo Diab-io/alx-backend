@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""A Basic Flask app.
+"""A Basic Flask app wuth babel config.
 """
 from flask_babel import Babel
 from flask import Flask, render_template
 
 
 class Config:
-    """Represents a Flask Babel configuration.
+    """class used for flask_babel configuration.
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
@@ -21,7 +21,7 @@ babel = Babel(app)
 
 @app.route('/')
 def get_index() -> str:
-    """The home/index page.
+    """The index route.
     """
     return render_template('1-index.html')
 
