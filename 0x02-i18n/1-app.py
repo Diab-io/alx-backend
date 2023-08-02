@@ -5,7 +5,7 @@ from flask import Flask, render_template
 from flask_babel import Babel
 
 
-class Config(object):
+class Config:
     """creates configurations for the flask app
     """
     BABEL_DEFAULT_LOCALE = 'en'
@@ -14,9 +14,9 @@ class Config(object):
 
 
 app = Flask(__name__)
+app.config.from_object(Config)
 app.url_map.strict_slashes = False
 bable = Babel(app)
-app.config.from_object(Config)
 
 
 @app.route('/')
